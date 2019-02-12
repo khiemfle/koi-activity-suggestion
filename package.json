@@ -1,0 +1,19 @@
+{
+  "name": "koi-activity-suggestion",
+  "version": "0.0.1",
+  "description": "",
+  "main": "calories.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khiem111189/koi-activity-suggestion.git"
+  },
+  "author": "koi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khiem111189/koi-activity-suggestion/issues"
+  },
+  "homepage": "https://github.com/khiem111189/koi-activity-suggestion#readme"
+}
