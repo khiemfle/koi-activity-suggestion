@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 var weightKg = null
   , totalMinutes = 0
   , activityNames = []
@@ -924,9 +926,35 @@ function getActivities(activities, weight, calories) {
     return data
 }
 
-var weight = 50
-var caloriesToLose = 250
-//var favoriteActivities = ['backpacking', 'hiking, cross country', 'ski machine, general']
-var favoriteActivities = activityNames
+/*
+You need to add your own nutritionix api id and key for this function to work!
+*/
+function getActivityFromFood(weight, favoriteActivities, food, portions) {
+  let query = portions + " " + food
 
-console.log(getActivities(favoriteActivities, weight, caloriesToLose))
+  let data = {
+      "query":query,
+      "timezone":"US/Eastern"
+  }
+  let headers = {
+      'Content-Type': 'application/json',
+      'x-app-id': '',
+      'x-app-key': '' 
+  }
+
+  axios.post('https://trackapi.nutritionix.com/v2/natural/nutrients', data, {headers: headers})
+  .then(function (response) {
+    var calories = response.data.foods[0].nf_calories
+    console.log(getActivities(favoriteActivities, weight, calories))
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
+
+var weight = 50
+var food = 'white bread'
+var favoriteActivities = ['backpacking', 'hiking, cross country', 'ski machine, general']
+//var favoriteActivities = activityNames
+
+getActivityFromFood(weight, favoriteActivities, food, 2)

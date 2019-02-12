@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/khiem111189/koi-activity-suggestion/issues"
   },
-  "homepage": "https://github.com/khiem111189/koi-activity-suggestion#readme"
+  "homepage": "https://github.com/khiem111189/koi-activity-suggestion#readme",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
 }
