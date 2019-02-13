@@ -1,4 +1,6 @@
 const axios = require('axios');
+const request = require('request');
+var fs = require('fs');
 
 var weightKg = null
   , totalMinutes = 0
@@ -907,7 +909,10 @@ calories: int
 
 Return a json-object
 */
-function getActivities(activities, weight, calories) {
+function getActivities(data, calories) {
+    // console.log(data);
+    var activities = data['favoriteActivities'];
+    var weight = data['weight'];
     calculateCaloriesBurned(weight, 30)
 
     var data = []
@@ -926,35 +931,125 @@ function getActivities(activities, weight, calories) {
     return data
 }
 
+
+var config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
+
+var apiURL = config.BLUEMIX_SERVER_URL;
+var appId = config.NUTRITIONIX_APP_ID;
+var appKey = config.NUTRITIONIX_APP_KEY;
+
 /*
 You need to add your own nutritionix api id and key for this function to work!
 */
 function getActivityFromFood(weight, favoriteActivities, food, portions) {
-  let query = portions + " " + food
-
-  let data = {
-      "query":query,
-      "timezone":"US/Eastern"
-  }
-  let headers = {
-      'Content-Type': 'application/json',
-      'x-app-id': '',
-      'x-app-key': '' 
-  }
-
-  axios.post('https://trackapi.nutritionix.com/v2/natural/nutrients', data, {headers: headers})
-  .then(function (response) {
-    var calories = response.data.foods[0].nf_calories
-    console.log(getActivities(favoriteActivities, weight, calories))
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+    var callback = {};
+    callback.func = function(callbackData, calories) {
+        console.log(getActivities(callbackData, calories));
+    }
+    callback.data = {
+        'weight': weight,
+        'favoriteActivities': favoriteActivities
+    }
+    // console.log(callback.data);
+    getCalories(food, portions, callback.func, callback.data);
 }
 
-var weight = 50
-var food = 'white bread'
-var favoriteActivities = ['backpacking', 'hiking, cross country', 'ski machine, general']
-//var favoriteActivities = activityNames
+function getCalories(food, portions, callback, callbackData) {
+    let query = portions + " " + food
 
-getActivityFromFood(weight, favoriteActivities, food, 2)
+    let data = {
+      "query":query,
+      "timezone":"US/Eastern"
+    }
+    let headers = {
+      'Content-Type': 'application/json',
+      'x-app-id': appId,
+      'x-app-key': appKey
+    }
+
+    axios.post('https://trackapi.nutritionix.com/v2/natural/nutrients', data, {headers: headers})
+    .then(function (response) {
+        var calories = response.data.foods[0].nf_calories
+        callback(callbackData, calories);
+        // console.log(getActivities(favoriteActivities, weight, calories))
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+}
+
+var profile = {
+    'weight': 75,
+    'favoriteActivities': ["swimming, leisurely, not lap swimming, general", 'soccer, casual, general', 'walking, to work or class', 'Music Playng: guitar, classical, folk, sitting']
+}
+
+function testGetActivityFromFood() {
+    // var weight = 50
+    var food = 'white bread'
+    //var favoriteActivities = activityNames
+
+    getActivityFromFood(profile.weight, profile.favoriteActivities, food, 2)
+}
+
+
+
+console.log(apiURL)
+
+const formData = {
+    myPhoto: fs.createReadStream(__dirname + '/orange.jpg')
+  };
+
+var url = apiURL + 'uploadpic'
+const options = {
+  url: url,
+  formData: formData
+};
+
+res = request.post(options, function optionalCallback(err, res, body) {
+    if (err) {
+        return console.error('upload failed:', err);
+    }
+
+    if (!body["data"]) {
+        body = {
+            "data": {
+                "classifier_id": "food",
+                "name": "food",
+                "classes": [
+                    {
+                        "class": "bun",
+                        "score": 0.784,
+                        "type_hierarchy": "/bread/bun"
+                    },
+                    {
+                        "class": "bread",
+                        "score": 0.811
+                    },
+                    {
+                        "class": "hamburger bun",
+                        "score": 0.5,
+                        "type_hierarchy": "/bread/bun/hamburger bun"
+                    }
+                ]
+            }
+        }
+    }
+
+    // console.log(body);
+
+    itemList = body["data"]["classes"];
+    var maxScore = 0;
+    var item = null;
+    for (var i = 0; i < itemList.length; i++) {
+        if (maxScore < itemList[i]["score"]) {
+            maxScore = itemList[i]["score"];
+            item = itemList[i]
+        }
+    }
+    console.log(item);
+    getActivityFromFood(profile.weight, profile.favoriteActivities, item.class, 1)
+});
+
+// console.log(res);
+
+// testGetActivityFromFood();
