@@ -1,0 +1,434 @@
+[
+	{
+		"age": [19,20],
+		"gender": "male",
+		"active": "low",
+		"cal":  2600
+	},
+	{
+		"age": [19,20],
+		"gender": "male",
+		"active": "moderate",
+		"cal":  2800
+	},
+	{
+		"age": [19,20],
+		"gender": "male",
+		"active": "high",
+		"cal":  3000
+	},
+	{
+		"age": [19,20],
+		"gender": "female",
+		"active": "low",
+		"cal":  2000
+	},
+	{
+		"age": [19,20],
+		"gender": "female",
+		"active": "moderate",
+		"cal":  2200
+	},
+	{
+		"age": [19,20],
+		"gender": "female",
+		"active": "high",
+		"cal":  2400
+	},
+	{
+		"age": [21,25],
+		"gender": "male",
+		"active": "low",
+		"cal":  2400
+	},
+	{
+		"age": [21,25],
+		"gender": "male",
+		"active": "moderate",
+		"cal":  2800
+	},
+	{
+		"age": [21,25],
+		"gender": "male",
+		"active": "high",
+		"cal":  3000
+	},
+	{
+		"age": [21,25],
+		"gender": "female",
+		"active": "low",
+		"cal":  2000
+	},
+	{
+		"age": [21,25],
+		"gender": "female",
+		"active": "moderate",
+		"cal":  2200
+	},
+	{
+		"age": [21,25],
+		"gender": "female",
+		"active": "high",
+		"cal":  2400
+	},
+	{
+		"age": [26,30],
+		"gender": "male",
+		"active": "low",
+		"cal":  2400
+	},
+	{
+		"age": [26,30],
+		"gender": "male",
+		"active": "moderate",
+		"cal":  2600
+	},
+	{
+		"age": [26,30],
+		"gender": "male",
+		"active": "high",
+		"cal":  3000
+	},
+	{
+		"age": [26,30],
+		"gender": "female",
+		"active": "low",
+		"cal":  1800
+	},
+	{
+		"age": [26,30],
+		"gender": "female",
+		"active": "moderate",
+		"cal":  2000
+	},
+	{
+		"age": [26,30],
+		"gender": "female",
+		"active": "high",
+		"cal":  2400
+	},
+	{
+		"age": [31,35],
+		"gender": "male",
+		"active": "low",
+		"cal":  2400
+	},
+	{
+		"age": [31,35],
+		"gender": "male",
+		"active": "moderate",
+		"cal":  2600
+	},
+	{
+		"age": [31,35],
+		"gender": "male",
+		"active": "high",
+		"cal":  3000
+	},
+	{
+		"age": [31,35],
+		"gender": "female",
+		"active": "low",
+		"cal":  1800
+	},
+	{
+		"age": [31,35],
+		"gender": "female",
+		"active": "moderate",
+		"cal":  2000
+	},
+	{
+		"age": [31,35],
+		"gender": "female",
+		"active": "high",
+		"cal":  2200
+	},
+	{
+		"age": [36,40],
+		"gender": "male",
+		"active": "low",
+		"cal":  2400
+	},
+	{
+		"age": [36,40],
+		"gender": "male",
+		"active": "moderate",
+		"cal":  2600
+	},
+	{
+		"age": [36,40],
+		"gender": "male",
+		"active": "high",
+		"cal":  2800
+	},
+	{
+		"age": [36,40],
+		"gender": "female",
+		"active": "low",
+		"cal":  1800
+	},
+	{
+		"age": [36,40],
+		"gender": "female",
+		"active": "moderate",
+		"cal":  2000
+	},
+	{
+		"age": [36,40],
+		"gender": "female",
+		"active": "high",
+		"cal":  2200
+	},
+	{
+		"age": [41,45],
+		"gender": "male",
+		"active": "low",
+		"cal":  2200
+	},
+	{
+		"age": [41,45],
+		"gender": "male",
+		"active": "moderate",
+		"cal":  2600
+	},
+	{
+		"age": [41,45],
+		"gender": "male",
+		"active": "high",
+		"cal":  2800
+	},
+	{
+		"age": [41,45],
+		"gender": "female",
+		"active": "low",
+		"cal":  1800
+	},
+	{
+		"age": [41,45],
+		"gender": "female",
+		"active": "moderate",
+		"cal":  2000
+	},
+	{
+		"age": [41,45],
+		"gender": "female",
+		"active": "high",
+		"cal":  2200
+	},
+	{
+		"age": [46,50],
+		"gender": "male",
+		"active": "low",
+		"cal":  2200
+	},
+	{
+		"age": [46,50],
+		"gender": "male",
+		"active": "moderate",
+		"cal":  2400
+	},
+	{
+		"age": [46,50],
+		"gender": "male",
+		"active": "high",
+		"cal":  2800
+	},
+	{
+		"age": [46,50],
+		"gender": "female",
+		"active": "low",
+		"cal":  1800
+	},
+	{
+		"age": [46,50],
+		"gender": "female",
+		"active": "moderate",
+		"cal":  2000
+	},
+	{
+		"age": [46,50],
+		"gender": "female",
+		"active": "high",
+		"cal":  2200
+	},
+	{
+		"age": [51,55],
+		"gender": "male",
+		"active": "low",
+		"cal":  2200
+	},
+	{
+		"age": [51,55],
+		"gender": "male",
+		"active": "moderate",
+		"cal":  2400
+	},
+	{
+		"age": [51,55],
+		"gender": "male",
+		"active": "high",
+		"cal":  2800
+	},
+	{
+		"age": [51,55],
+		"gender": "female",
+		"active": "low",
+		"cal":  1600
+	},
+	{
+		"age": [51,55],
+		"gender": "female",
+		"active": "moderate",
+		"cal":  1800
+	},
+	{
+		"age": [51,55],
+		"gender": "female",
+		"active": "high",
+		"cal":  2200
+	},
+	{
+		"age": [56,60],
+		"gender": "male",
+		"active": "low",
+		"cal":  2200
+	},
+	{
+		"age": [56,60],
+		"gender": "male",
+		"active": "moderate",
+		"cal":  2400
+	},
+	{
+		"age": [56,60],
+		"gender": "male",
+		"active": "high",
+		"cal":  2600
+	},
+	{
+		"age": [56,60],
+		"gender": "female",
+		"active": "low",
+		"cal":  1600
+	},
+	{
+		"age": [56,60],
+		"gender": "female",
+		"active": "moderate",
+		"cal":  1800
+	},
+	{
+		"age": [56,60],
+		"gender": "female",
+		"active": "high",
+		"cal":  2200
+	},
+	{
+		"age": [61,65],
+		"gender": "male",
+		"active": "low",
+		"cal":  2000
+	},
+	{
+		"age": [61,65],
+		"gender": "male",
+		"active": "moderate",
+		"cal":  2400
+	},
+	{
+		"age": [61,65],
+		"gender": "male",
+		"active": "high",
+		"cal":  2600
+	},
+	{
+		"age": [61,65],
+		"gender": "female",
+		"active": "low",
+		"cal":  1600
+	},
+	{
+		"age": [61,65],
+		"gender": "female",
+		"active": "moderate",
+		"cal":  1800
+	},
+	{
+		"age": [61,65],
+		"gender": "female",
+		"active": "high",
+		"cal":  2000
+	},
+	{
+		"age": [66,70],
+		"gender": "male",
+		"active": "low",
+		"cal":  2000
+	},
+	{
+		"age": [66,70],
+		"gender": "male",
+		"active": "moderate",
+		"cal":  2200
+	},
+	{
+		"age": [66,70],
+		"gender": "male",
+		"active": "high",
+		"cal":  2600
+	},
+	{
+		"age": [66,70],
+		"gender": "female",
+		"active": "low",
+		"cal":  1600
+	},
+	{
+		"age": [66,70],
+		"gender": "female",
+		"active": "moderate",
+		"cal":  1800
+	},
+	{
+		"age": [66,70],
+		"gender": "female",
+		"active": "high",
+		"cal":  2000
+	},
+	{
+		"age": [71,100],
+		"gender": "male",
+		"active": "low",
+		"cal":  2000
+	},
+	{
+		"age": [71,100],
+		"gender": "male",
+		"active": "moderate",
+		"cal":  2200
+	},
+	{
+		"age": [71,100],
+		"gender": "male",
+		"active": "high",
+		"cal":  2600
+	},
+	{
+		"age": [71,100],
+		"gender": "female",
+		"active": "low",
+		"cal":  1600
+	},
+	{
+		"age": [71,100],
+		"gender": "female",
+		"active": "moderate",
+		"cal":  1800
+	},
+	{
+		"age": [71,100],
+		"gender": "female",
+		"active": "high",
+		"cal":  2000
+	}
+]

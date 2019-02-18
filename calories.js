@@ -978,10 +978,7 @@ function getCalories(food, portions, callback, callbackData) {
     });
 }
 
-var profile = {
-    'weight': 75,
-    'favoriteActivities': ["swimming, leisurely, not lap swimming, general", 'soccer, casual, general', 'walking, to work or class', 'Music Playng: guitar, classical, folk, sitting']
-}
+var profile = JSON.parse(fs.readFileSync('profile.json', 'utf8'));
 
 function testGetActivityFromFood() {
     // var weight = 50
@@ -991,64 +988,85 @@ function testGetActivityFromFood() {
     getActivityFromFood(profile.weight, profile.favoriteActivities, food, 2)
 }
 
+var body = JSON.parse(fs.readFileSync('data.json', 'utf8'));
 
-
-console.log(apiURL)
-
-const formData = {
-    myPhoto: fs.createReadStream(__dirname + '/orange.jpg')
-  };
-
-var url = apiURL + 'uploadpic'
-const options = {
-  url: url,
-  formData: formData
-};
-
-res = request.post(options, function optionalCallback(err, res, body) {
-    if (err) {
-        return console.error('upload failed:', err);
+itemList = body["data"]["classes"];
+var maxScore = 0;
+var item = null;
+for (var i = 0; i < itemList.length; i++) {
+    if (maxScore < itemList[i]["score"]) {
+        maxScore = itemList[i]["score"];
+        item = itemList[i]
     }
+}
+console.log(item);
+var portion = JSON.parse(fs.readFileSync('portion.json', 'utf8'));
+getActivityFromFood(profile.weight, profile.favoriteActivities, item.class, portion.value);
 
-    if (!body["data"]) {
-        body = {
-            "data": {
-                "classifier_id": "food",
-                "name": "food",
-                "classes": [
-                    {
-                        "class": "bun",
-                        "score": 0.784,
-                        "type_hierarchy": "/bread/bun"
-                    },
-                    {
-                        "class": "bread",
-                        "score": 0.811
-                    },
-                    {
-                        "class": "hamburger bun",
-                        "score": 0.5,
-                        "type_hierarchy": "/bread/bun/hamburger bun"
-                    }
-                ]
-            }
-        }
-    }
 
-    // console.log(body);
+// var filepath = __dirname + '/orange.jpg';
+// function uploadImage(filepath) {
+//     var url = apiURL + 'uploadpic';
 
-    itemList = body["data"]["classes"];
-    var maxScore = 0;
-    var item = null;
-    for (var i = 0; i < itemList.length; i++) {
-        if (maxScore < itemList[i]["score"]) {
-            maxScore = itemList[i]["score"];
-            item = itemList[i]
-        }
-    }
-    console.log(item);
-    getActivityFromFood(profile.weight, profile.favoriteActivities, item.class, 1)
-});
+//     const formData = {
+//         myPhoto: fs.createReadStream(filepath)
+//     };
+
+//     const options = {
+//       url: url,
+//       formData: formData
+//     };
+
+//     request.post(options, function optionalCallback(err, res, body) {
+//         if (err) {
+//             return console.error('upload failed:', err);
+//         }
+
+//         if (!body["data"]) {
+//             console.log(body);
+//             uploadImage(filepath);
+//             return;
+//             // body = {
+//             //     "data": {
+//             //         "classifier_id": "food",
+//             //         "name": "food",
+//             //         "classes": [
+//             //             {
+//             //                 "class": "bun",
+//             //                 "score": 0.784,
+//             //                 "type_hierarchy": "/bread/bun"
+//             //             },
+//             //             {
+//             //                 "class": "bread",
+//             //                 "score": 0.811
+//             //             },
+//             //             {
+//             //                 "class": "hamburger bun",
+//             //                 "score": 0.5,
+//             //                 "type_hierarchy": "/bread/bun/hamburger bun"
+//             //             }
+//             //         ]
+//             //     }
+//             // }
+//         }
+
+//         // console.log(body);
+
+//         itemList = body["data"]["classes"];
+//         var maxScore = 0;
+//         var item = null;
+//         for (var i = 0; i < itemList.length; i++) {
+//             if (maxScore < itemList[i]["score"]) {
+//                 maxScore = itemList[i]["score"];
+//                 item = itemList[i]
+//             }
+//         }
+//         console.log(item);
+//         getActivityFromFood(profile.weight, profile.favoriteActivities, item.class, 1);
+//     });
+// }
+
+// uploadImage(filepath);
 
 // console.log(res);
 

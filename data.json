@@ -1,0 +1,25 @@
+{
+    "data": {
+        "classifier_id": "food",
+        "name": "food",
+        "classes": [
+            {
+                "class": "cheeseburger",
+                "score": 0.72,
+                "type_hierarchy": "/snack food/sandwich/hamburger/cheeseburger"
+            },
+            {
+                "class": "hamburger",
+                "score": 1
+            },
+            {
+                "class": "sandwich",
+                "score": 0.848
+            },
+            {
+                "class": "snack food",
+                "score": 0.848
+            }
+        ]
+    }
+}
